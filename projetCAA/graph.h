@@ -8,16 +8,16 @@ class Graph
 {   
 private:
     int nbVerts;
-    std::list<ListAdj> listAdj;
+    std::list<ListAdj> listListAdj;
 
 public:
-    Graph();
-    void setGraphFromFile(std::string fileName);
+    Graph(int nbNode, int prob);
+    Graph(std::string fileName);
 
     void addVert(Node node);
-    void addEdge(Node origin, Node dest);
+    void addEdge(ListAdj *n1, ListAdj *n2);
 
-    void Display();
+    void display();
 };
 
 #endif // GRAPH_H

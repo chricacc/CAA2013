@@ -18,9 +18,10 @@ public:
     Node getNode();
     std::list<Node> getNeighbours();
 
-    void AddEdge(Node node);
+    void addNeighbour(Node node);
+    void removeNeighbour(Node node);
 
-    void Display();
+    void display();
 };
 
 bool isInList(Node node, std::list<Node> list);

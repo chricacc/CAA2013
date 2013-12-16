@@ -1,18 +1,29 @@
 #include <iostream>
-#include "listadj.h"
+#include<cstdlib>
+#include<ctime>
+
+#include "graph.h"
+#include "bipart.h"
+#include "tree.h"
+
 using namespace std;
 
 int main()
 {
-    Node n0(0);
-    Node n1(1);
-    Node n2(2);
+    //initialisation de la fonction rand()
+    srand(time(0));
 
-    ListAdj l(n0);
-    l.AddEdge(n1);
-    l.AddEdge(n2);
+    Graph g1(5, 50);
+    g1.display();
+    cout<<"\n";
 
-    l.Display();
+    Bipart b1(6,50);
+    b1.display();
+    cout<<"\n";
+
+    Tree t1(6, 100);
+    t1.display();
+    cout<<"\n";
 
     return 0;
 }

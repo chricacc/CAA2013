@@ -21,11 +21,18 @@ std::list<Node> ListAdj::getNeighbours()
     return this->neighbours;
 }
 
-void ListAdj::AddEdge(Node node)
+void ListAdj::addNeighbour(Node node)
 {
     if(!isInList(node, this->neighbours) && !(this->node.equals(node)))
         this->neighbours.push_back(node);
 }
+
+void ListAdj::removeNeighbour(Node node)
+{
+    if(isInList(node, this->neighbours))
+        this->neighbours.remove(node);
+}
+
 
 bool isInList(Node node, std::list<Node> list)
 {
@@ -38,7 +45,7 @@ bool isInList(Node node, std::list<Node> list)
     return res;
 }
 
-void ListAdj::Display()
+void ListAdj::display()
 {
     std::cout << this->getNode().getId() << " : ";
     for (std::list<Node>::iterator it=this->neighbours.begin(); it != this->neighbours.end(); ++it)

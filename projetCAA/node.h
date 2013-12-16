@@ -14,6 +14,8 @@ public:
     int getId();
     bool equals(Node node);
 
+    friend bool operator== (Node n1, Node n2);
+
 };
 
 #endif // NODE_H
