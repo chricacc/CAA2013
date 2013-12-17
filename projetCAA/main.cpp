@@ -21,7 +21,7 @@ int main()
     b1.display();
     cout<<"\n";
 
-    Tree t1(6, 100);
+    Tree t1(10);
     t1.display();
     cout<<"\n";
 

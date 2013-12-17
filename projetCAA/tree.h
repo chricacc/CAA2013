@@ -14,18 +14,15 @@ private:
     bool isCyclicUtil(ListAdj lAdj, bool visited[], ListAdj lAdjParent);
 
 public:
-    Tree(int nbNode, int prob);
+    Tree(int nbNode);
     Tree(std::string fileName);
 
     void addVert(Node node);
     void addEdge(ListAdj *n1, ListAdj *n2);
     void removeEdge(ListAdj *n1, ListAdj *n2);
-    ListAdj getListFromNode(Node n);
+    ListAdj* getListFromNode(Node n);
 
-    bool isCyclic();
-
-
-    void display();
+      void display();
 };
 
 #endif // TREE_H

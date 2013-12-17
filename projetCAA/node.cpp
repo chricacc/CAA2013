@@ -27,3 +27,8 @@ bool operator== (Node n1, Node n2)
 {
     return n1.equals(n2);
 }
+
+bool operator!= (Node n1, Node n2)
+{
+    return !(n1==n2);
+}
