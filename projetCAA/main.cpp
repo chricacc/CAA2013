@@ -5,6 +5,8 @@
 #include "graph.h"
 #include "bipart.h"
 #include "tree.h"
+#include "cover.h"
+#include "smallcovergraph.h"
 
 using namespace std;
 
@@ -21,9 +23,16 @@ int main()
     b1.display();
     cout<<"\n";
 
-    Tree t1(10);
+    Tree t1(6);
     t1.display();
     cout<<"\n";
+
+    ListAdj t1Cover(Node(0), coverTree(&t1));
+    t1Cover.display();
+    cout<<"\n";
+
+    SmallCoverGraph smCovGph(5, 50, 2);
+    smCovGph.display();
 
     return 0;
 }

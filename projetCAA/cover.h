@@ -3,8 +3,6 @@
 
 #include "tree.h"
 
-extern std::list<Node> vertBlack;
-extern std::list<Node> vertWhite;
 
 std::list<Node> coverTree(Tree *tree);
 

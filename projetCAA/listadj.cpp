@@ -50,5 +50,4 @@ void ListAdj::display()
     std::cout << this->getNode().getId() << " : ";
     for (std::list<Node>::iterator it=this->neighbours.begin(); it != this->neighbours.end(); ++it)
         std::cout << ' ' << (*it).getId();
-
 }

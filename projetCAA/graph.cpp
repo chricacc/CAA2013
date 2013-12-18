@@ -1,11 +1,15 @@
-#include "graph.h"
 #include<cstdlib>
 #include<ctime>
 
+#include "graph.h"
+
+
+Graph::Graph(){}
+
 Graph::Graph(int nbNode, int prob)
 {
-    this->nbVerts = nbNode;
-    for(int i=0; i < nbVerts; i++){
+    this->nbVerts = 0;
+    for(int i=0; i < nbNode; i++){
         Node n(i);
         addVert(n);
     }
@@ -36,6 +40,7 @@ Graph::Graph(std::string fileName)
 void Graph::addVert(Node node)
 {
     listListAdj.push_back(ListAdj(node));
+    this->nbVerts += 1;
 }
 
 void Graph::addEdge(ListAdj *n1, ListAdj *n2)
