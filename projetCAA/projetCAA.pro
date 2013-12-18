@@ -7,12 +7,16 @@ SOURCES += main.cpp \
     listadj.cpp \
     graph.cpp \
     bipart.cpp \
-    tree.cpp
+    tree.cpp \
+    cover.cpp \
+    smallcovergraph.cpp
 
 HEADERS += \
     node.h \
     listadj.h \
     graph.h \
     bipart.h \
-    tree.h
+    tree.h \
+    cover.h \
+    smallcovergraph.h
 
