@@ -14,7 +14,7 @@ int main()
 {
     //initialisation de la fonction rand()
     srand(time(0));
-
+/*
     cout<<"Graph g1 :\n";
     Graph g1(5, 20);
     g1.display();
@@ -35,9 +35,19 @@ int main()
     smCovGph.display();
     cout<<"\n";
 
+    cout<<"Graph from file g2 :\n";
+    Graph g2("file_test_graph.gph");
+    g2.display();
+    cout<<"\n";
+
     cout<<"cover g1 :\n";
     ListAdj testGraph(Node(0), coverGraph(&g1));
     testGraph.display();
+    cout<<"\n";
+
+    cout<<"cover g2 :\n";
+    ListAdj testGraph2(Node(0), coverGraph(&g2));
+    testGraph2.display();
     cout<<"\n";
 
     cout<<"cover b1 :\n";
@@ -49,7 +59,18 @@ int main()
     ListAdj t1Cover(Node(0), coverTree(&t1));
     t1Cover.display();
     cout<<"\n";
+//*/
 
+
+    cout<<"Graph from file g3:\n";
+    Graph g3("file_test_graph_non_connexe.gph");
+    g3.display();
+    cout<<"\n";
+
+    cout<<"cover g3 :\n";
+    ListAdj testGraph3(Node(0), coverGraph(&g3));
+    testGraph3.display();
+    cout<<"\n";
 
     return 0;
 }

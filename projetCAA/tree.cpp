@@ -51,6 +51,12 @@ void Tree::removeEdge(ListAdj *n1, ListAdj *n2)
     n1->removeNeighbour(n2->getNode());
 }
 
+ListAdj Tree::getRoot()
+{
+    return *(listListAdj.begin());
+
+}
+
 ListAdj* Tree::getListFromNode(Node n)
 {
     for(std::list<ListAdj>::iterator it=this->listListAdj.begin(); it != this->listListAdj.end(); ++it)

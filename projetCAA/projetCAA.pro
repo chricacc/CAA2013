@@ -9,7 +9,8 @@ SOURCES += main.cpp \
 	bipart.cpp \
 	tree.cpp \
         cover.cpp \
-        smallcovergraph.cpp
+        smallcovergraph.cpp \
+    tools.cpp
 
 HEADERS += \
     node.h \
@@ -18,5 +19,6 @@ HEADERS += \
     bipart.h \
     tree.h \
     cover.h \
-    smallcovergraph.h
+    smallcovergraph.h \
+    tools.h
 

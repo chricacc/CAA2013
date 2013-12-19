@@ -21,6 +21,7 @@ public:
     void addVert(Node node);
     void addEdge(ListAdj *n1, ListAdj *n2);
     void removeEdge(ListAdj *n1, ListAdj *n2);
+    ListAdj getRoot();
     ListAdj* getListFromNode(Node n);
 
       void display();

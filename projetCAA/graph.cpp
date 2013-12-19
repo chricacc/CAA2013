@@ -1,8 +1,8 @@
 #include<cstdlib>
 #include<ctime>
-
+#include<fstream>
 #include "graph.h"
-
+#include "tools.h"
 
 Graph::Graph(){}
 
@@ -34,7 +34,28 @@ Graph::Graph(int nbNode, int prob)
 
 Graph::Graph(std::string fileName)
 {
+    std::ifstream flux(fileName.c_str(), std::ios::in);
+    if(flux){
+        std::string line;
+        std::getline(flux, line);
+        this->nbVerts = atoi(line.c_str());
+        for(int i=0; i < this->nbVerts; i++){
+            std::getline(flux, line);
+            std::vector<std::string> vLine = split(line, ':');
+            Node node(atoi(vLine[0].c_str()));
+            std::vector<std::string> vNeighbours = split(vLine[1], ' ');
+            std::list<Node> listNeighbours;
+            for(std::vector<std::string>::iterator idNeighbour=vNeighbours.begin(); idNeighbour!=vNeighbours.end(); ++idNeighbour)
+            {
+                listNeighbours.push_back(Node(atoi((*idNeighbour).c_str())));
+            }
+            this->listListAdj.push_back(ListAdj(node, listNeighbours));
+        }
 
+        flux.close();
+    }else{
+        std::cerr << "file not found" << std::endl;
+    }
 }
 
 void Graph::addVert(Node node)

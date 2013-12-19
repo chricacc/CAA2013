@@ -10,7 +10,7 @@ std::list<Node> coverTree(Tree *tree)
 {
     vertBlack.clear();
     vertWhite.clear();
-    ListAdj current = *((*tree).getListFromNode(Node(0)));
+    ListAdj current = (*tree).getRoot();
     vertBlack.push_back(current.getNode());
 
     sortTree(current, &vertWhite, &vertBlack, tree);
@@ -43,15 +43,17 @@ std::list<Node> coverBipart(Bipart *bipart){
 }
 
 //parcours profondeur en marquand les sommets visités -> arbre -> getCover
-Tree dfs(Graph *graph){
+std::list<Tree> dfs(Graph *graph){
     std::list<Node> visited;
-    Tree result;
+    std::list<Tree> result;
     std::list<ListAdj> lists = graph->getLists();
     for (std::list<ListAdj>::iterator it=lists.begin(); it != lists.end(); ++it){
         if(!isInList((*it).getNode(), visited)){
-            result.addVert((*it).getNode());
+            Tree treeRes;
+            treeRes.addVert((*it).getNode());
             visited.push_back((*it).getNode());
-            sdfs(graph,(*it), &visited, &result);
+            sdfs(graph,(*it), &visited, &treeRes);
+            result.push_back(treeRes);
          }
     }
     return result;
@@ -69,10 +71,6 @@ void sdfs(Graph *graph, ListAdj neighbours,std::list<Node> *visited, Tree *resul
 
             (*visited).push_back(*it);
 
-            std::cout << "DISPLAY\n";
-            result->display();
-            std::cout << "DISPLAY\n";
-
             ListAdj *next = (*graph).getListFromNode(*it);
             sdfs(graph, *next, visited, result);
         }
@@ -80,8 +78,15 @@ void sdfs(Graph *graph, ListAdj neighbours,std::list<Node> *visited, Tree *resul
 }
 
 std::list<Node> coverGraph(Graph *graph){
-    Tree t = dfs(graph);
-    return coverTree(&t);
+    std::list<Tree> lt = dfs(graph);
+    std::list<Node> res;
+
+    for(std::list<Tree>::iterator tree=lt.begin(); tree!=lt.end(); ++tree){
+        std::list<Node> tmpRes = coverTree(&(*tree));
+        res.insert(res.end(), tmpRes.begin(), tmpRes.end());
+    }
+
+    return res;
 }
 
 
