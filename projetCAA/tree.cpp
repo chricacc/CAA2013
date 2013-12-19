@@ -4,7 +4,7 @@
 #include "tree.h"
 
 Tree::Tree(){
-
+    nbVerts = 0;
 }
 
 Tree::Tree(int nbNode)

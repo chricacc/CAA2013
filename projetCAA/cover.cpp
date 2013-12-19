@@ -46,7 +46,8 @@ std::list<Node> coverBipart(Bipart *bipart){
 Tree dfs(Graph *graph){
     std::list<Node> visited;
     Tree result;
-    for (std::list<ListAdj>::iterator it=graph->getLists().begin(); it != graph->getLists().end(); ++it){
+    std::list<ListAdj> lists = graph->getLists();
+    for (std::list<ListAdj>::iterator it=lists.begin(); it != lists.end(); ++it){
         if(!isInList((*it).getNode(), visited)){
             result.addVert((*it).getNode());
             visited.push_back((*it).getNode());
@@ -61,8 +62,19 @@ void sdfs(Graph *graph, ListAdj neighbours,std::list<Node> *visited, Tree *resul
     for (std::list<Node>::iterator it=nbr.begin(); it != nbr.end(); ++it){
         if(!isInList((*it), *visited)){
             (*result).addVert(*it);
+
+            ListAdj *n1 = (*result).getListFromNode(neighbours.getNode());
+            ListAdj *n2 = (*result).getListFromNode(*it);
+            (*result).addEdge(n1, n2);
+
             (*visited).push_back(*it);
-            sdfs(graph, *(*graph).getListFromNode(*it), visited, result);
+
+            std::cout << "DISPLAY\n";
+            result->display();
+            std::cout << "DISPLAY\n";
+
+            ListAdj *next = (*graph).getListFromNode(*it);
+            sdfs(graph, *next, visited, result);
         }
     }
 }
