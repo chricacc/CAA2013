@@ -44,6 +44,21 @@ void Graph::addEdge(ListAdj *n1, ListAdj *n2)
     n2->addNeighbour(n1->getNode());
 }
 
+std::list<ListAdj> Graph::getLists(){
+    return this->listListAdj;
+}
+
+ListAdj* Graph::getListFromNode(Node n){
+    for(std::list<ListAdj>::iterator it=this->listListAdj.begin(); it != this->listListAdj.end(); ++it)
+    {
+        if(((*it).getNode())==n){
+            return &(*it);
+        }
+    }
+    ListAdj resFault = ListAdj(Node(-1));
+    return &resFault;
+}
+
 void Graph::display()
 {
     std::cout << this->nbVerts << "\n";

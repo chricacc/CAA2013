@@ -5,6 +5,7 @@
 #include "graph.h"
 #include "bipart.h"
 #include "tree.h"
+#include "cover.h"
 
 using namespace std;
 
@@ -21,8 +22,20 @@ int main()
     b1.display();
     cout<<"\n";
 
-    Tree t1(10);
+    Tree t1(5);
     t1.display();
+    cout<<"\n";
+/*
+    ListAdj testGraph(Node(0), coverGraph(&g1));
+    testGraph.display();
+    cout<<"\n";
+*/
+    ListAdj testBipart(Node(0), coverBipart(&b1));
+    testBipart.display();
+    cout<<"\n";
+
+    ListAdj testTree(Node(0), coverTree(&t1));
+    testTree.display();
     cout<<"\n";
 
     return 0;

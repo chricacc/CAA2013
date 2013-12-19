@@ -52,3 +52,5 @@ void ListAdj::display()
         std::cout << ' ' << (*it).getId();
 
 }
+
+
