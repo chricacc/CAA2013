@@ -3,12 +3,14 @@
 
 #include<string>
 #include"listadj.h"
+#include"edge.h"
 
 class Graph
 {   
 protected:
     int nbVerts;
     int nbEdges;
+    std::list<Edge> listEdge;
     std::list<ListAdj> listListAdj;
 
 public:

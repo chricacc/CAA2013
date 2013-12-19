@@ -14,7 +14,7 @@ int main()
 {
     //initialisation de la fonction rand()
     srand(time(0));
-/*
+//*
     cout<<"Graph g1 :\n";
     Graph g1(5, 20);
     g1.display();
@@ -36,7 +36,7 @@ int main()
     cout<<"\n";
 
     cout<<"Graph from file g2 :\n";
-    Graph g2("file_test_graph.gph");
+    Graph g2("../dataTest/file_test_graph.gph");
     g2.display();
     cout<<"\n";
 
@@ -63,7 +63,7 @@ int main()
 
 
     cout<<"Graph from file g3:\n";
-    Graph g3("file_test_graph_non_connexe.gph");
+    Graph g3("../dataTest/file_test_graph_non_connexe.gph");
     g3.display();
     cout<<"\n";
 

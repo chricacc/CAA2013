@@ -1,9 +1,9 @@
 #include<cstdlib>
 #include<ctime>
 #include<fstream>
-#include<tuple>
 #include "graph.h"
 #include "tools.h"
+
 
 Graph::Graph(){}
 
@@ -24,7 +24,8 @@ Graph::Graph(int nbNode, int prob)
 
             if(it != it2){
                 if((rand() % 100) < prob){
-                    if(!isInList((*it2).getNode(), done)){
+                    Node n = (*it2).getNode();
+                    if(!isInList<Node>(n, done)){
                         addEdge(&(*it), &(*it2));
                     }
                 }
@@ -50,18 +51,15 @@ Graph::Graph(std::string fileName)
             std::vector<std::string> vNeighbours = split(vLine[1], ' ');
             std::list<Node> listNeighbours;
 
-            std::list<std::tuple<Node,Node>> listEdges;
-
             for(std::vector<std::string>::iterator idNeighbour=vNeighbours.begin(); idNeighbour!=vNeighbours.end(); ++idNeighbour)
             {
                 Node n(atoi((*idNeighbour).c_str()));
                 listNeighbours.push_back(n);
-                /*
-                 *if(!listEdges.contains(tuple(n,node))
-                 *  nbEdges+1;
-                 *  listEdges.add(tuple(n,node));
-                 */
-
+                Edge edge(n, node);
+                if(!isInList<Edge>(edge,listEdge)){
+                    nbEdges++;
+                    listEdge.push_back(edge);
+                }
             }
 
 
@@ -84,6 +82,7 @@ void Graph::addEdge(ListAdj *n1, ListAdj *n2)
 {
     n1->addNeighbour(n2->getNode());
     n2->addNeighbour(n1->getNode());
+    listEdge.push_back(Edge(n1->getNode(), n2->getNode()));
     nbEdges++;
 }
 

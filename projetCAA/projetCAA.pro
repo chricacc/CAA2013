@@ -10,7 +10,8 @@ SOURCES += main.cpp \
 	tree.cpp \
         cover.cpp \
         smallcovergraph.cpp \
-    tools.cpp
+    tools.cpp \
+    edge.cpp
 
 HEADERS += \
     node.h \
@@ -20,5 +21,6 @@ HEADERS += \
     tree.h \
     cover.h \
     smallcovergraph.h \
-    tools.h
+    tools.h \
+    edge.h
 

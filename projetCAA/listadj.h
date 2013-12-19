@@ -24,6 +24,6 @@ public:
     void display();
 };
 
-bool isInList(Node node, std::list<Node> list);
+//bool isInList(Node node, std::list<Node> list);
 
 #endif // MATADJ_H

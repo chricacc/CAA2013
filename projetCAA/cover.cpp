@@ -1,6 +1,6 @@
-#include "cover.h"
 #include <stdio.h>
-
+#include "cover.h"
+#include "tools.h"
 
 //vertex cover trivial
 std::list<Node> vertBlack;
@@ -47,14 +47,17 @@ std::list<Tree> dfs(Graph *graph){
     std::list<Node> visited;
     std::list<Tree> result;
     std::list<ListAdj> lists = graph->getLists();
-    for (std::list<ListAdj>::iterator it=lists.begin(); it != lists.end(); ++it){
-        if(!isInList((*it).getNode(), visited)){
+    for (std::list<ListAdj>::iterator it=lists.begin(); it != lists.end(); ++it)
+    {
+        Node n = (*it).getNode();
+        if(!isInList<Node>(n, visited))
+        {
             Tree treeRes;
             treeRes.addVert((*it).getNode());
             visited.push_back((*it).getNode());
             sdfs(graph,(*it), &visited, &treeRes);
             result.push_back(treeRes);
-         }
+        }
     }
     return result;
 }

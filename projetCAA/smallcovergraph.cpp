@@ -3,6 +3,7 @@
 #include<ctime>
 
 #include "smallcovergraph.h"
+#include "tools.h"
 
 SmallCoverGraph::SmallCoverGraph(int nbNode, int prob, int coverSize)
 {
@@ -20,10 +21,13 @@ SmallCoverGraph::SmallCoverGraph(int nbNode, int prob, int coverSize)
     {
         for (std::list<ListAdj>::iterator it2=listListAdj.begin(); it2 != listListAdj.end(); ++it2)
         {
-
-            if((*it).getId() != (*it2).getNode().getId()){
-                if((rand() % 100) < prob){
-                    if(!isInList((*it2).getNode(), done)){
+            if((*it).getId() != (*it2).getNode().getId())
+            {
+                if((rand() % 100) < prob)
+                {
+                    Node n = (*it2).getNode();
+                    if(!isInList<Node>(n, done))
+                    {
                         ListAdj* tmp = getListFromNode(*it);
                         addEdge(tmp, &(*it2));
                     }
