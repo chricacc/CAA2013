@@ -6,11 +6,12 @@
 
 class Graph
 {   
-private:
+protected:
     int nbVerts;
     std::list<ListAdj> listListAdj;
 
 public:
+    Graph();
     Graph(int nbNode, int prob);
     Graph(std::string fileName);
 

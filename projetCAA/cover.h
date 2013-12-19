@@ -5,8 +5,6 @@
 #include "graph.h"
 #include "bipart.h"
 
-extern std::list<Node> vertBlack;
-extern std::list<Node> vertWhite;
 
 std::list<Node> coverTree(Tree *tree);
 std::list<Node> coverGraph(Graph *graph);

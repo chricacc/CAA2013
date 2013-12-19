@@ -14,10 +14,10 @@ private:
 public:
     Bipart(int nbNode, int prob);
     void setBipartFromFile(std::string fileName);
-
+    std::list<Node> getLeft();
+    std::list<Node> getRight();
     void addVert(Node node);
     void addEdge(ListAdj *n1, ListAdj *n2);
-
     void display();
 };
 

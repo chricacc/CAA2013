@@ -14,6 +14,7 @@ private:
     bool isCyclicUtil(ListAdj lAdj, bool visited[], ListAdj lAdjParent);
 
 public:
+    Tree();
     Tree(int nbNode);
     Tree(std::string fileName);
 

@@ -6,8 +6,8 @@
 std::list<Node> vertBlack;
 std::list<Node> vertWhite;
 
-
-std::list<Node> coverTree(Tree *tree){
+std::list<Node> coverTree(Tree *tree)
+{
     vertBlack.clear();
     vertWhite.clear();
     ListAdj current = *((*tree).getListFromNode(Node(0)));
@@ -19,17 +19,18 @@ std::list<Node> coverTree(Tree *tree){
         return vertBlack;
     else
         return vertWhite;
-
 }
 
-void sortTree(ListAdj current, std::list<Node> *goodList, std::list<Node> *wrongList, Tree *tree){
-
-    if((!current.getNeighbours().empty()) && (current.getNode() != Node(-1))){
+void sortTree(ListAdj current, std::list<Node> *goodList, std::list<Node> *wrongList, Tree *tree)
+{
+    if((!(current.getNeighbours().empty())) && (current.getNode() != Node(-1)))
+    {
         std::list<Node> listNode = current.getNeighbours();
-        for(std::list<Node>::iterator it=listNode.begin(); it != listNode.end(); ++it){
+        for(std::list<Node>::iterator it=listNode.begin(); it != listNode.end(); ++it)
+        {
             (*goodList).push_back((*it));
-            ListAdj *next = (*tree).getListFromNode(*it);
-            sortTree( *next, wrongList, goodList,tree);
+            ListAdj* next = (*tree).getListFromNode(*it);
+            sortTree(*next, wrongList, goodList,tree);
         }
     }
 }

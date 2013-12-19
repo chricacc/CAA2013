@@ -8,12 +8,15 @@ SOURCES += main.cpp \
 	graph.cpp \
 	bipart.cpp \
 	tree.cpp \
-	cover.cpp
+        cover.cpp \
+        smallcovergraph.cpp
 
-HEADERS +=m \
-	node.h\
-	listadj.h \
-	graph.h \
-	bipart.h \
-	tree.h \
-	cover.h
+HEADERS += \
+    node.h \
+    listadj.h \
+    graph.h \
+    bipart.h \
+    tree.h \
+    cover.h \
+    smallcovergraph.h
+

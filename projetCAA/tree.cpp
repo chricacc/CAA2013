@@ -3,6 +3,9 @@
 #include<list>
 #include "tree.h"
 
+Tree::Tree(){
+
+}
 
 Tree::Tree(int nbNode)
 {

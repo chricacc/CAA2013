@@ -25,6 +25,22 @@ Bipart::Bipart(int nbNode, int prob)
 
 }
 
+std::list<Node> Bipart::getLeft(){
+    std::list<Node> res;
+    for (std::list<ListAdj>::iterator it=this->partLeft.begin(); it != this->partLeft.end(); ++it){
+        res.push_back((*it).getNode());
+    }
+    return res;
+}
+
+std::list<Node> Bipart::getRight(){
+    std::list<Node> res;
+    for (std::list<ListAdj>::iterator it=this->partRight.begin(); it != this->partRight.end(); ++it){
+        res.push_back((*it).getNode());
+    }
+    return res;
+}
+
 void Bipart::setBipartFromFile(std::string fileName)
 {
 
