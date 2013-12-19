@@ -90,3 +90,9 @@ std::list<Node> coverGraph(Graph *graph){
 }
 
 
+void coverToSAT(Graph *graph, std::string outputFile){
+    int nbVert = graph->getNbVerts();
+
+}
+
+
