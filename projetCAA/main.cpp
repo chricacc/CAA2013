@@ -14,25 +14,63 @@ int main()
 {
     //initialisation de la fonction rand()
     srand(time(0));
-
-    Graph g1(5, 50);
+/*
+    cout<<"Graph g1 :\n";
+    Graph g1(5, 20);
     g1.display();
     cout<<"\n";
 
+    cout<<"Graph b1 :\n";
     Bipart b1(6,50);
     b1.display();
     cout<<"\n";
 
-    Tree t1(6);
+    cout<<"Graph t1 :\n";
+    Tree t1(5);
     t1.display();
     cout<<"\n";
 
+    cout<<"Graph smc1 :\n";
+    SmallCoverGraph smCovGph(5, 50, 2);
+    smCovGph.display();
+    cout<<"\n";
+
+    cout<<"Graph from file g2 :\n";
+    Graph g2("file_test_graph.gph");
+    g2.display();
+    cout<<"\n";
+
+    cout<<"cover g1 :\n";
+    ListAdj testGraph(Node(0), coverGraph(&g1));
+    testGraph.display();
+    cout<<"\n";
+
+    cout<<"cover g2 :\n";
+    ListAdj testGraph2(Node(0), coverGraph(&g2));
+    testGraph2.display();
+    cout<<"\n";
+
+    cout<<"cover b1 :\n";
+    ListAdj testBipart(Node(0), coverBipart(&b1));
+    testBipart.display();
+    cout<<"\n";
+
+    cout<<"cover t1 :\n";
     ListAdj t1Cover(Node(0), coverTree(&t1));
     t1Cover.display();
     cout<<"\n";
+//*/
 
-    SmallCoverGraph smCovGph(5, 50, 2);
-    smCovGph.display();
+
+    cout<<"Graph from file g3:\n";
+    Graph g3("file_test_graph_non_connexe.gph");
+    g3.display();
+    cout<<"\n";
+
+    cout<<"cover g3 :\n";
+    ListAdj testGraph3(Node(0), coverGraph(&g3));
+    testGraph3.display();
+    cout<<"\n";
 
     return 0;
 }

@@ -3,13 +3,14 @@ CONFIG += console
 CONFIG -= qt
 
 SOURCES += main.cpp \
-    node.cpp \
-    listadj.cpp \
-    graph.cpp \
-    bipart.cpp \
-    tree.cpp \
-    cover.cpp \
-    smallcovergraph.cpp
+	node.cpp \
+	listadj.cpp \
+	graph.cpp \
+	bipart.cpp \
+	tree.cpp \
+        cover.cpp \
+        smallcovergraph.cpp \
+    tools.cpp
 
 HEADERS += \
     node.h \
@@ -18,5 +19,6 @@ HEADERS += \
     bipart.h \
     tree.h \
     cover.h \
-    smallcovergraph.h
+    smallcovergraph.h \
+    tools.h
 

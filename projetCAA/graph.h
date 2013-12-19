@@ -8,6 +8,7 @@ class Graph
 {   
 protected:
     int nbVerts;
+    int nbEdges;
     std::list<ListAdj> listListAdj;
 
 public:
@@ -17,8 +18,11 @@ public:
 
     void addVert(Node node);
     void addEdge(ListAdj *n1, ListAdj *n2);
-
+    std::list<ListAdj> getLists();
+    ListAdj* getListFromNode(Node n);
+    int getNbVerts();
+    int getNbEdges();
     void display();
-};
+    };
 
 #endif // GRAPH_H

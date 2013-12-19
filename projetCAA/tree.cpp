@@ -3,6 +3,9 @@
 #include<list>
 #include "tree.h"
 
+Tree::Tree(){
+    nbVerts = 0;
+}
 
 Tree::Tree(int nbNode)
 {
@@ -46,6 +49,12 @@ void Tree::addEdge(ListAdj *n1, ListAdj *n2)
 void Tree::removeEdge(ListAdj *n1, ListAdj *n2)
 {
     n1->removeNeighbour(n2->getNode());
+}
+
+ListAdj Tree::getRoot()
+{
+    return *(listListAdj.begin());
+
 }
 
 ListAdj* Tree::getListFromNode(Node n)
