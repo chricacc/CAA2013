@@ -10,11 +10,36 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
     //initialisation de la fonction rand()
     srand(time(0));
-/*
+
+    if (argc > 1) {
+        //"-sat <graphfilename> <outputfilename>" to coverToSAT.
+        if (string (argv[1]).compare("-sat") == 0) {
+            Graph g(argv[2]);
+            coverToSAT(&g,argv[3]);
+            return 0;
+
+        //"-cover <graphfilename>" to coverGraph.
+        } else if (string (argv[1]).compare("-cover") == 0) {
+            Graph g(argv[2]);
+            ListAdj afficheGraph(Node(0), coverGraph(&g));
+            afficheGraph.display();
+            cout<<"\n";
+            return 0;
+
+        //"-postSATCover <inputfilename>" to salToCover
+        }else if (string (argv[1]).compare("-cover") == 0) {
+            ListAdj cover(Node(0),satToCover(string (argv[2])));
+            cover.display();
+            cout<<"\n";
+            return 0;
+        }
+
+    //jeu de test
+    }else {
     cout<<"Graph g1 :\n";
     Graph g1(5, 20);
     g1.display();
@@ -70,7 +95,7 @@ int main()
     ListAdj testGraph3(Node(0), coverGraph(&g3));
     testGraph3.display();
     cout<<"\n";
-*/
+
     cout<<"Graph from file g5 :\n";
     Graph g5("../dataTest/file_test_graph.gph");
     g5.display();
@@ -91,5 +116,6 @@ int main()
     testGraph7.display();
     cout<<"\n";
     return 0;
+    }
 }
 
