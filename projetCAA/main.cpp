@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
             return 0;
 
         //"-postSATCover <inputfilename>" to salToCover
-        }else if (string (argv[1]).compare("-cover") == 0) {
+        }else if (string (argv[1]).compare("-postSATCover") == 0) {
             ListAdj cover(Node(0),satToCover(string (argv[2])));
             cover.display();
             cout<<"\n";
