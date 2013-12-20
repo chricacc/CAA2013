@@ -1,4 +1,3 @@
-#include<cstdlib>
 #include<ctime>
 #include<fstream>
 #include "graph.h"
@@ -88,6 +87,10 @@ void Graph::addEdge(ListAdj *n1, ListAdj *n2)
 
 std::list<ListAdj> Graph::getLists(){
     return this->listListAdj;
+}
+
+std::list<Edge> Graph::getListEdges(){
+    return this->listEdge;;
 }
 
 ListAdj* Graph::getListFromNode(Node n){

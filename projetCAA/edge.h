@@ -9,7 +9,8 @@ private:
     Node n2;
 public:
     Edge(Node n1, Node n2);
-
+    Node getFirstNode();
+    Node getSecondNode();
     friend bool operator== (Edge e1, Edge e2);
     friend bool operator!= (Edge e1, Edge e2);
 };

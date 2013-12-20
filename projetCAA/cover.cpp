@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <fstream>
 #include "cover.h"
 #include "tools.h"
 
@@ -92,10 +93,58 @@ std::list<Node> coverGraph(Graph *graph){
     return res;
 }
 
+/*
+ *  c Here is a comment.
+ *  p cnf 5 3
+ *  1 -5 4 0
+ *  -1 5 3 4 0
+ *  -3 -4 0
+ */
 
 void coverToSAT(Graph *graph, std::string outputFile){
     int nbVert = graph->getNbVerts();
+    int nbEdge = graph->getNbEdges();
+    std::ofstream file(outputFile.c_str(), std::ios::out);
+    if(file){
+        file << "p cnf " << nbVert << " " << nbEdge;
+        file << "\n";
+        std::list<Edge> listEdge = graph->getListEdges();
+        for(std::list<Edge>::iterator current=listEdge.begin(); current!=listEdge.end(); ++current){
+            file << (*current).getFirstNode().getId();
+            file << " " << (*current).getSecondNode().getId();
+            file << "\n";
+        }
+        file.close();
+    }else{
+        std::cerr << "file not found" << std::endl;
+    }
 
+}
+
+std::list<Node> satToCover(std::string inputFile){
+    std::list<Node> resultCover;
+    std::ifstream flux(inputFile.c_str(), std::ios::in);
+    if(flux){
+            std::string line;
+            std::getline(flux, line);
+            if(line == "SAT"){
+                std::getline(flux, line);
+                std::vector<std::string> vNode = split(line, ' ');
+                for(std::vector<std::string>::iterator idNode=vNode.begin(); idNode!=vNode.end(); ++idNode)
+                {
+                    if(atoi((*idNode).c_str()) >= 0){
+                        Node n(atoi((*idNode).c_str()));
+                        resultCover.push_back(n);
+                    }
+                }
+            }else{
+                std::cerr << "no solution found" << std::endl;
+            }
+        flux.close();
+    }else{
+        std::cerr << "file not found" << std::endl;
+    }
+    return resultCover;
 }
 
 

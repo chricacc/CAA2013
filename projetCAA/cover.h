@@ -10,7 +10,7 @@ std::list<Node> coverTree(Tree *tree);
 std::list<Node> coverGraph(Graph *graph);
 std::list<Node> coverBipart(Bipart *bipart);
 void coverToSAT(Graph *graph, std::string outputFile);
-
+std::list<Node> satToCover(std::string inputFile);
 void sortTree(ListAdj current, std::list<Node> *goodList, std::list<Node> *wrongList, Tree *tree);
 
 std::list<Tree> dfs(Graph *graph);

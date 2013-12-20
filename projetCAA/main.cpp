@@ -14,7 +14,7 @@ int main()
 {
     //initialisation de la fonction rand()
     srand(time(0));
-//*
+/*
     cout<<"Graph g1 :\n";
     Graph g1(5, 20);
     g1.display();
@@ -59,7 +59,6 @@ int main()
     ListAdj t1Cover(Node(0), coverTree(&t1));
     t1Cover.display();
     cout<<"\n";
-//*/
 
 
     cout<<"Graph from file g3:\n";
@@ -71,7 +70,26 @@ int main()
     ListAdj testGraph3(Node(0), coverGraph(&g3));
     testGraph3.display();
     cout<<"\n";
+*/
+    cout<<"Graph from file g5 :\n";
+    Graph g5("../dataTest/file_test_graph.gph");
+    g5.display();
+    cout<<"\n";
 
+    cout<<"covertToSAT g5:\n";
+    coverToSAT(&g5, "../dataTest/g5.minisat");
+    cout<<"Done, run minisat on g5.minisat\n";
+    cout<<"\n";
+
+    cout<<"satToCover g6:\n";
+    ListAdj testGraph6(Node(0),satToCover("../dataTest/g6.aftersat"));
+    testGraph6.display();
+    cout<<"\n";
+
+    cout<<"satToCover g7:\n";
+    ListAdj testGraph7(Node(0),satToCover("../dataTest/g7.aftersat"));
+    testGraph7.display();
+    cout<<"\n";
     return 0;
 }
 

@@ -3,6 +3,7 @@
 
 #include<string>
 #include"listadj.h"
+#include<cstdlib>
 #include"edge.h"
 
 class Graph
@@ -22,6 +23,7 @@ public:
     void addEdge(ListAdj *n1, ListAdj *n2);
     std::list<ListAdj> getLists();
     ListAdj* getListFromNode(Node n);
+    std::list<Edge> getListEdges();
     int getNbVerts();
     int getNbEdges();
     void display();
